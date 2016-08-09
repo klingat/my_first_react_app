@@ -22133,6 +22133,7 @@
 	        var url = "https://api.github.com/users/" + this.props.username;
 	        var that = this; // has to be outside the function that we're using it in
 	        $.getJSON(url, function (result) {
+	            //console.log(result);
 	            that.setState({
 	                user: result.login,
 	                avatarURL: result.avatar_url,
@@ -22145,10 +22146,9 @@
 	    componentDidMount: function componentDidMount() {
 	        this.fetchData();
 	    },
-	    componentDidUpdate: function componentDidUpdate() {
-	        // console.log(this.props.username)
+	    componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
 	
-	        if (this.props.username !== this.state.user) {
+	        if (this.props.username !== prevProps.username) {
 	            this.fetchData();
 	        }
 	    },
