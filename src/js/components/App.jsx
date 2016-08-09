@@ -7,6 +7,8 @@ var CharacterCount = require("./CharacterCount.jsx");
 var CharacterLimit = require("./CharacterLimit.jsx");
 var NumberGuessing = require("./NumberGuessing.jsx");
 var GithubProfile = require("./GithubProfile.jsx");
+var GithubSearchForm = require("./GithubSearchForm.jsx");
+var GithubSearch = require("./GithubSearch.jsx");
 
 
 var imageList = [
@@ -57,21 +59,19 @@ var App = React.createClass({
           <hr/>
           <h1>🏓🏓🏓🏓🏓🏓🏓</h1>
           <h1>THE COOLEST GITHUB USERS</h1>
-          <hr/>
           <GithubProfile username={"gaearon"}/>
-          <hr/>
           <GithubProfile username={"klingat"}/>
-          <hr/>
           <GithubProfile username={"decodeMTL"}/>
-          <hr/>
           <GithubProfile username={"cbroomhead"}/>
-          <hr/>
           <GithubProfile username={"ziad-saab"}/>
-          <hr/>
           <GithubProfile username={"harrisrobin"}/>
-          <hr/>
+          <GithubProfile username={"facebook"}/>
           <h1>💆🏼💆🏼💆🏼💆🏼💆🏼💆🏼💆🏼</h1>
-          
+          <hr/>
+          <h1>Find a GitHub User</h1>
+          <GithubSearch/>
+          <h1>🔍 🔎🔍 🔎🔍 🔎</h1>
+          <hr/>
         </div>
       </main>
     );

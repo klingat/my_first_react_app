@@ -8,21 +8,31 @@ var GithubProfile = React.createClass({
     getInitialState: function() {
         return ({});
     },
-    componentDidMount: function() {
+    fetchData: function() {
         var url = "https://api.github.com/users/" + this.props.username;
         var that = this; // has to be outside the function that we're using it in
         $.getJSON(url, function(result) {
             that.setState({
-                username: result.login,
+                user: result.login,
                 avatarURL: result.avatar_url,
                 bio: result.bio,
                 name: result.name
             })
-            console.log(result);
+            // console.log(result);
         })
     },
+    componentDidMount: function() {
+        this.fetchData()
+    },
+    componentDidUpdate: function() {
+        // console.log(this.props.username)
+        
+        if (this.props.username !== this.state.user) {
+            this.fetchData();
+        }
+    },
     render: function() {
-        if (!this.state.username) {
+        if (!this.state.user) {
             return (
                 <div>
                     <p>LOADING</p>
@@ -34,7 +44,7 @@ var GithubProfile = React.createClass({
             <div className="github-user">
               <img className="github-user__avatar" src={this.state.avatarURL}/>
               <div className="github-user__info">
-                <p>{this.state.username} ({this.state.name})</p>
+                <p>{this.state.user} ({this.state.name})</p>
                 <p>{this.state.bio}</p>
               </div> 
             </div>

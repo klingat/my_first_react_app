@@ -33,6 +33,7 @@ button:hover {
 h1, h2, h3 {
     color: #e6bcff;
     text-shadow: 1px 1px 1px black;
+    margin: 0;
 }
 
 img {
